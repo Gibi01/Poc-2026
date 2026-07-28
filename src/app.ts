@@ -51,9 +51,9 @@ async function main() {
   // Eliminar un usuario
   // ==========================
 
- //await em.removeAndFlush(encontrado);
+ await em.removeAndFlush(encontrado);
 
- //console.log('Usuario eliminado');
+ console.log('Usuario eliminado');
 
  await orm.close(true);
 
