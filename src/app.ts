@@ -12,9 +12,10 @@ async function main() {
 
   console.log('Conectado a la base de datos');
 
-  // ==========================
+
+
+
   // Crear un usuario
-  // ==========================
 
   const usuario = em.create(Usuario, {
     nombre: 'Facundo',
@@ -26,9 +27,10 @@ async function main() {
 
   console.log('Usuario creado:', usuario);
 
-  // ==========================
+  
+
+
   // Buscar un usuario
-  // ==========================
 
   const encontrado = await em.findOneOrFail(
     Usuario,
@@ -37,9 +39,10 @@ async function main() {
 
   console.log('Usuario encontrado:', encontrado);
 
-  // ==========================
+
+
+
   // Actualizar un usuario
-  // ==========================
 
   encontrado.apellido = 'Perez';
 
@@ -47,9 +50,10 @@ async function main() {
 
   console.log('Usuario actualizado');
 
-  // ==========================
+
+
+
   // Eliminar un usuario
-  // ==========================
 
  await em.removeAndFlush(encontrado);
 
