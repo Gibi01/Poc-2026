@@ -61,18 +61,7 @@ await orm.em.transactional(async (em) => {
 });
 
   
-  // Eliminar instancias de Usuario, Habitación y Reserva
   
- await em.removeAndFlush(usuario);
-
- await em.removeAndFlush(habitacion);
-
- await em.removeAndFlush(await em.findOneOrFail(Reserva, { usuario: usuario.id }));
-
- console.log('Usuario eliminado');
- console.log('Habitación eliminada');
- console.log('Reserva eliminada');
-
 
 
  await orm.close(true);
