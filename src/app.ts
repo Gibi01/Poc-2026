@@ -51,8 +51,8 @@ await orm.em.transactional(async (em) => {
   habitacionReserva.libre = false;
 
   const reserva = em.create(Reserva, {
-    usuarioId: usuarioReserva.id,
-    habitacionId: habitacionReserva.id,
+    usuario: usuario,
+    habitacion: habitacion,
     fechaIngreso: new Date(),
   });
 
@@ -60,35 +60,19 @@ await orm.em.transactional(async (em) => {
   em.flush();
 });
 
-  console.log('Usuario encontrado:', usuario);
-
-
-
-
-  // Actualizar un usuario
-
-  usuario.apellido = 'Perez';
-
-  await em.flush();
-
-  console.log('Usuario actualizado');
-
-
-
   
-  // Eliminar un usuario
-
-/*
+  // Eliminar instancias de Usuario, Habitación y Reserva
+  
  await em.removeAndFlush(usuario);
 
  await em.removeAndFlush(habitacion);
 
- await em.removeAndFlush(await em.findOneOrFail(Reserva, { id: 1 }));
+ await em.removeAndFlush(await em.findOneOrFail(Reserva, { usuario: usuario.id }));
 
  console.log('Usuario eliminado');
  console.log('Habitación eliminada');
  console.log('Reserva eliminada');
-*/
+
 
 
  await orm.close(true);

@@ -1,4 +1,6 @@
 import { defineEntity, p } from '@mikro-orm/core';
+import { Usuario } from './usuario';
+import { Habitación } from './habitaciones';
 
 export const Reserva = defineEntity({
 
@@ -8,9 +10,9 @@ export const Reserva = defineEntity({
 
         id: p.integer().primary(),
 
-        usuarioId: p.integer(),
+        usuario: () => p.manyToOne(Usuario),
 
-        habitacionId: p.integer(),
+        habitacion: () => p.manyToOne(Habitación),
 
         fechaIngreso: p.datetime(),
 
